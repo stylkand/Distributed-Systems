@@ -2,7 +2,7 @@
 
 The Noobcash application implements a simple blockchain system with proof of work consensus.
 
-We utilized 5 VMs distributed by Okeanos cloud service and used flask framework with REST architecture.
+We utilized 5 VMs distributed by *Okeanos* cloud service using *Flask* framework with *REST* architecture.
 
 **Specifications per VM**
 
