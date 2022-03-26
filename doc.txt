@@ -1,38 +1,60 @@
-Classes:
+Κλάσεις
 
-Node:
+Node: ο κόμβος του cluster
+Αποτελείται από το ID του κόμβου, το wallet και την blockchain του καθώς το ring με τις
+πληροφορίες για κάθε κόμβο του cluster (ip, port, public key) και τις λίστες:
 
+● valid_trans: τα validated transactions του node
 
-Wallet:
+● pending_trans: τα transactions που δεν έγιναν validated επειδή λείπουν τα
+απαιτούμενα inputs για το validation
 
+● unreceived_trans: transactions που έχει λάβει ο node από block που έγινε broadcast
+και όχι μεμονωμένα
+
+Wallet: το wallet κάθε κόμβου του cluster
+Περιλαμβάνει το private και public key, τα τρέχοντα utxos του κόμβου όπως προκύπτουν
+από τις κλήσεις της validate transaction, τα utxos του όπως διαμορφώθηκαν μετά την
+προσθήκη του τελευταίου block στο blockchain του και τη συνάρτηση balance για εύρεση
+των NBC του κόμβου.
 
 Block:
-
+Αποτελείται από το index με τη θέση που θα έχει στο chain του κόμβου και το hash του
+προηγούμενου block, το hash του, το timestamp δημιουργίας του, τη λίστα των transactions
+του και τη μεταβλητή nonce με τη λύση του proof-of-work. Η συνάρτηση myHash()
+υπολογίζει το hash του block συναρτήσει όλων των πεδίων του block χρησιμοποιώντας τη
+συνάρτηση SHA256() της βιβλιοθήκης Crypto.Hash της Python.
 
 Blockchain:
-
+Περιέχει τη λίστα των blocks του chain και τη συνάρτηση create_blockchain() που καλείται
+από τον bootstrap κόμβο για τη δημιουργία του genesis block με index 0 και previous hash 1
+και την προσθήκη στην αλυσίδα του.
 
 Transaction:
-
-
+Περιλαμβάνει τα public keys του sender και του receiver κόμβου, καθώς και τα IDs τους στο
+ring του cluster, το ποσό που μεταφέρεται, το hash του transaction και την υπογραφή του
+sender. Έχει επίσης λίστα με τα inputs, δηλαδή τα id προηγούμενων συναλλαγών από τα
+οποία αθροιστικά χρησιμοποιεί funds ο sender ώστε να εκτελέσει την παρούσα συναλλαγή,
+αλλά και τα outputs του transaction, τα οποία προστίθενται στα utxos του κατάλληλου
+παραλήπτη (“to_who”), και σίγουρα περιλαμβάνουν τα NBCs προς τον receiver κομβο και
+στην περίπτωση που υπάρχει υπόλοιπο στη συναλλαγή (inputs-transaction amount),
+περιλαμβάνουν και τα ρέστα που πάνε προς τον sender . To hash του transaction προκύπτει
+από την SHA256() συναρτήσει των public keys αποστολέα και παραλήπτη, του amount και
+των transaction inputs με τη συνάρτηση hash().
+Σημαντικές μέθοδοι της κλάσης είναι το “ζεύγος” sign και verify transaction που
+χρησιμοποιούν την βιβλιοθήκη PKCS1_v1_5 για κρυπτογραφημένες υπογραφές. Η πρώτη
+επιτρέπει στον sender να προσθέσει μια μοναδική κρυπτογραφημένη υπογραφή, με βάση το
+private key του στο οποίο έχει πρόσβαση μόνο ο ίδιος, σε ένα μήνυμα το οποίο στην
+προκειμένη είναι το hash του συγκεκριμένου transaction. Η verify signature, με χρήση της
+ίδιας βιβλιοθήκης και μέσω του public key του sender επιβεβαιώνει ότι η υπογραφή της
+συγκεκριμένης υπογραφής παράχθηκε με χρήση του σωστού private key
 
 Threadpool:
+Με τη χρήση του ThreadPoolExecutor της βιβλιοθήκης concurrent.futures , δημιουργείται ένα
+poll με threads για το mining. To πλήθος των διαθέσιμων threads είναι ένα, δεδομένου ότι
+κάθε VM έχει 2 cores και έτσι επιπλέον παραλληλισμός δε θα οδηγούσε σε βελτιωμένα
+αποτελέσματα. Υπάρχει μόνο 1 επιπλέον διαθέσιμο thread, καθώς κάθε vm έχει 2 cores
+και επομένως δεν μπορεί να υποστηρίξει επιπλέον επίπεδο παραλληλισμού με
+βελτιωμένη απόδοση.
 
-
-Rest:
-
-
-
-
-
-clustering:
-
-
-transaction creation:
-
-
-
-
-mining:
-
-
+Rest: αποτελείται από τις συναρτήσεις για την επικοινωνία μεταξύ των κόμβων
