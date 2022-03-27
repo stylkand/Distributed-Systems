@@ -1,0 +1,27 @@
+Classes contained
+
+Node 
+a single node of our 5 VM cluster
+Contains:
+- id: id number of node
+- wallet(subclass): contains private and public key, utxos, 
+- blockchain: chain of blocks
+- valid_trans: validated transactions of the node 
+- pending_trans: 
+- unreceived_trans:
+
+
+Block
+a single block of the node blockchain
+Contains:
+- index: number of block inside the node chain
+- previous_hash: hash of the previous block (SHA256 encryption method is used)
+- transactions: list of transactions of the block
+- timestamp: creation time
+- nonce: used to enforce proof of work
+
+Blockchain:
+the list-chain of blocks
+-create_blockchain(): creates the genesis block
+
+Transaction:
