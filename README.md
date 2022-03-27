@@ -1,11 +1,11 @@
 # Distributed-Systems
 
 NTUA ECE, Distributed Systems 2022
-Stylianos Kandylakis
-Kitsos Orfanopoulos
-Christos Tsoufis
+- Stylianos Kandylakis
+- Kitsos Orfanopoulos
+- Christos Tsoufis
 
-The Noobcash application implements a simple blockchain system with proof of work consensus.
+The **Noobcash** application implements a simple blockchain system with proof of work consensus.
 
 We utilized 5 VMs distributed by *Okeanos* cloud service using *Flask* framework with *REST* architecture.
 
