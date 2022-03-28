@@ -4,11 +4,18 @@ Node
 a single node of our 5 VM cluster
 Contains:
 - id: id number of node
-- wallet(subclass): contains private and public key, utxos, 
+- wallet(subclass): used to specify transactions 
 - blockchain: chain of blocks
-- valid_trans: validated transactions of the node 
-- pending_trans: 
-- unreceived_trans:
+- valid_trans: validated transactions by the node 
+- pending_trans: non-validated transactions by the node
+- unreceived_trans: transactions broadcasted to the node
+- ring: information about every node (ip_address, port, public_key)
+
+Wallet
+every node corresponds to a wallet
+- public key: used as the address of the wallet
+- private key: used to create signatures
+- utxos: unspent transactions 
 
 
 Block
@@ -19,9 +26,27 @@ Contains:
 - transactions: list of transactions of the block
 - timestamp: creation time
 - nonce: used to enforce proof of work
+All blocks have a certain transactions capacity.
+
 
 Blockchain:
 the list-chain of blocks
--create_blockchain(): creates the genesis block
+
 
 Transaction:
+information of a transaction
+- sender: public key of sender
+- receiver: public key of receiver
+- senderID: sender's ID in the cluster 
+- receiverID: receiver's ID in the cluster
+- amount: amount of NBC shared 
+- id: id number of node
+- transaction_inputs: ids from previous transactions were gains appeared
+- transaction_outputs: receiver's NBC gains and sender's change 
+- signature: private key of sender
+
+
+
+
+
+
