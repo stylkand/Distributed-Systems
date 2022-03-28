@@ -93,11 +93,11 @@ while a new block is broadcasted to a node, the block is validated by checking c
 
 
 validate_chain():
-
+validate_block() is called for every block except the genesis
 
 
 resolve_conflict():
-
+if validate_block() == false,  then it is possible a chain has subtree, so chain with biggest range is selected 
 
 
 
