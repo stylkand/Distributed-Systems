@@ -1,8 +1,7 @@
 # <b> NoobCash💰</b>
 ### A simple blockchain system in Python, semester project for Distributed Systems course at [ECE](https://www.ece.ntua.gr/en)⚡, [NTUA](https://www.ntua.gr/en)🎓, academic year 2021-2022
 
-<img alt="Python" src = "https://img.shields.io/badge/Python-1136AA?style=for-the-badge&logo=python&logoColor=white" height="28">
-<img alt="Flask" src = "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" height="28">
+<img alt="Python" src = "https://img.shields.io/badge/Python-1136AA?style=for-the-badge&logo=python&logoColor=white" height="28"><img alt="Flask" src = "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" height="28">
 
 
 <hr>
@@ -26,7 +25,7 @@ Project's assignement and report are written in greek.
 | Name - GitHub                                     | Email                   |
 |----------------------------------------------------------------|-------------------------|
 | [Stylianos Kandylakis](https://github.com/stylkand/) | el17088@mail.ntua.gr    |
-| [Kitsos Orfanopoulos](https://github.com/kitsorfan)               | <img alt="protonamil" src = "https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white" href = "mailto:kitsorfan@protonmail.com" target="_blank">|
+| [Kitsos Orfanopoulos](https://github.com/kitsorfan)               | <a href = "mailto:kitsorfan@protonmail.com" target="_blank"><img alt="protonamil" src = "https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white" ></a>|
 | [Christos Tsoufis](https://github.com/ChristosTsoufis)                 | el17176@gmail.com      |
 
 
