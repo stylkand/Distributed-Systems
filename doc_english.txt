@@ -1,4 +1,4 @@
-Classes contained
+Classes
 
 Node 
 a single node of our 5 VM cluster
@@ -44,6 +44,69 @@ information of a transaction
 - transaction_inputs: ids from previous transactions were gains appeared
 - transaction_outputs: receiver's NBC gains and sender's change 
 - signature: private key of sender
+
+
+rest:
+rest API commands for communication
+
+
+Functions
+
+generate_wallet():
+
+
+
+wallet_balance():
+
+
+create_transaction():
+
+
+
+sign_transaction():
+
+
+
+broadcast_transaction():
+
+
+
+
+verify_signature():
+
+
+
+validate_transaction():
+
+
+
+mine_block():
+
+
+broadcast_block():
+
+
+
+validate_block():
+
+
+
+validate_chain():
+
+
+
+resolve_conflict():
+
+
+
+
+
+
+
+
+
+
+
 
 
 
