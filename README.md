@@ -1,7 +1,7 @@
 # <b> NoobCash💰</b>
 ### A simple blockchain system in Python, semester project for Distributed Systems course at [ECE](https://www.ece.ntua.gr/en)⚡, [NTUA](https://www.ntua.gr/en)🎓, academic year 2021-2022
 
-<img alt="Python" src = "https://img.shields.io/badge/Python-1136AA?style=for-the-badge&logo=python&logoColor=white" height="28"><img alt="Flask" src = "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" height="28">
+<img alt="Python" src = "https://img.shields.io/badge/Python-1136AA?style=for-the-badge&logo=python&logoColor=white" height="28"> <img alt="Flask" src = "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" height="28"> <img alt="Ubuntu Server" src = "https://img.shields.io/badge/Ubuntu Server-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" height="28">
 
 
 <hr>
