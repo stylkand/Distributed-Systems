@@ -39,7 +39,7 @@ Project's assignement and report are written in greek.
 |Ubuntu 16.04 LTS (Xenial)| 2 | 2GB|30GB|
 
 
-### ***Installation Steps***
+## 🛠**Installation Steps**
 
 #### Install libraries 
 ```bash
