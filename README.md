@@ -110,7 +110,7 @@ pip3 install -r requirements.txt
 <img alt="made with markdown" src ="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg">
 
 Learn more on READMEs:
-- https://www.makeareadme.com/r
+- https://www.makeareadme.com/
 - https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/
 
 
