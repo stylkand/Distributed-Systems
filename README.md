@@ -100,6 +100,11 @@ source env/bin/activate
 pip3 install -r requirements.txt
 ```
 
+#### Automatically create requirements.txt
+```bash
+pip3 freeze > requirements.txt # for python3
+```
+
 
 
 ### **🔗Sources**
