@@ -3,18 +3,6 @@
 # Kitsos Orfanopoulos
 # Christos Tsoufis
 
-# --------------Prerequisites-----------------
-# pip install -r requirements.txt
-
-
-# --------------Terminal scripts--------------
-#export FLASK_APP=api.py		for windows set FLASK_APP=api.py
-#export FLASK_ENV=development       !!FOR DEBUG MODE!!
-#flask run -h localhost -p 8765 --cert=adhoc
-#set FLASK_DEBUG=1
-
-# --------------Online Tutorials--------------
-# https://medium.com/@karthikeyan.ranasthala/build-a-jwt-based-authentication-rest-api-with-flask-and-mysql-5dc6d3d1cb82
 
 
 import datetime;
