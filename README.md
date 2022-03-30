@@ -103,9 +103,9 @@ pip3 install -r requirements.txt
 
 
 ### **🔗Sources**
-- <a src="https://www.activestate.com/blog/how-to-build-a-blockchain-in-python/">How to build a blockchain in Python</a>
-- <a src="https://www.rosehosting.com/blog/how-to-install-python-3-6-on-ubuntu-16-04/">How to install python 3.6 on Ubuntu</a>
-- <a src="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">Installing and using pip and virtual environment in Python</a>
+- [How to build a blockchain in Python](https://www.activestate.com/blog/how-to-build-a-blockchain-in-python/)
+- [How to install python 3.6 on Ubuntu](https://www.rosehosting.com/blog/how-to-install-python-3-6-on-ubuntu-16-04/)
+- [Installing and using pip and virtual environment in Python](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
   
 ### **📑About README** 
 <img alt="made with markdown" src ="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg">
