@@ -8,18 +8,19 @@
 
 from Crypto.Hash import SHA256
 
-import block
-import blockchain
-import wallet
 import json
 import requests
-import transaction
 import copy
-
-# import os
 import threading
-import threadpool
 import time
+# import os
+
+# ours 
+import block
+import blockchain
+import transaction
+import threadpool
+import wallet
 
 CAPACITY = 1	# 1 or 5 or 10
 DIFFICULTY = 4	# 4 or 5
@@ -73,10 +74,10 @@ class Node:
 
 	# 🟨🟨🟨🟨🟨🟨🟨🟨
 	# get index of a node, given its public key
-	def public_key_to_nodeData_id(self, public_key):
+	def public_key_to_nodeData_id(self, publicKey):
 		for i in self.nodeData:
 			data = self.nodeData[i]
-			if data['public_key'] == public_key:
+			if data['publicKey'] == publicKey:
 				return i
 
 
@@ -151,7 +152,7 @@ class Node:
 	# 🟪🟪🟪🟪
 	# Create first transaction (giving free money to bootstrap)
 	def create_genesis_transaction(self,totalNodes):
-		sender=self.wallet.public_key # get public key from bootstrap node
+		sender=self.wallet.publicKey # get public key from bootstrap node
 		initialAmount=100*totalNodes # initial balance of bootstrap
 
 		# initialize first transaction arguments
@@ -179,11 +180,11 @@ class Node:
 	# 🟪🟪🟪🟪🟪🟪
 	# Add node to nodeData set. Only bootstrap can do this
 	# Bootstrap node broadcast the registation to all other nodes and gives the new node an ID and 100 NBCs
-	def register_node_to_nodeData(self, nodeID, ip, port, public_key):
+	def register_node_to_nodeData(self, nodeID, ip, port, publicKey):
 		if self.id == 0:
-			self.nodeData[nodeID] = {'ip': ip,'port': port,'public_key': public_key}
+			self.nodeData[nodeID] = {'ip': ip,'port': port,'publicKey': publicKey}
 			if(self.id!=nodeID):
-				self.wallet.utxos[public_key]=[] # initialize utxos of other nodes
+				self.wallet.utxos[publicKey]=[] # initialize utxos of other nodes
 		else:
 			print("Error-register: this node is not boostrap")
 		return
@@ -289,7 +290,7 @@ class Node:
 				if (amount <= sum):
 					break
 			newTransaction = copy.deepcopy(transaction.Transaction(senderPublicKey, senderID, receiverPublicKey, receiverID, amount, inputs))
-			newTransaction.sign_transaction(self.wallet.private_key) #set id & signature
+			newTransaction.sign_transaction(self.wallet.privateKey) #set id & signature
 			newTransaction.transaction_outputs.append({'id': newTransaction.id, 'to_who': newTransaction.sender, 'amount': sum-newTransaction.amount})
 			newTransaction.transaction_outputs.append({'id': newTransaction.id, 'to_who':newTransaction.receiver, 'amount': newTransaction.amount})
 
@@ -488,7 +489,7 @@ class Node:
 		tempUTXOs = {}
 
 		# REDO bootstrap's UTXOs which are not valid
-		btstrp_public_k = self.nodeData[0]['public_key']
+		btstrp_public_k = self.nodeData[0]['publicKey']
 		amount = len(self.nodeData.keys())*100 # number of nodes * 100 NBCs
 		tempUTXOs[btstrp_public_k] = [{"id":0,"to_who":btstrp_public_k,"amount":amount}]
 
@@ -553,7 +554,7 @@ class Node:
 		try:
 			for key in self.nodeData:
 				node=self.nodeData[key]
-				if node['public_key'] == self.wallet.public_key:
+				if node['publicKey'] == self.wallet.publicKey:
 					continue
 				n_id= key
 				n_ip = node['ip']

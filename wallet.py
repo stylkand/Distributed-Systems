@@ -1,28 +1,49 @@
-import binascii
+# DISTRIBUTED SYSTEMS - NTUA ECE 2021 - 2022
+# Stylianos Kandylakis
+# Kitsos Orfanopoulos
+# Christos Tsoufis
 
-import Crypto
-import Crypto.Random
-from Crypto.Hash import SHA
+# import binascii
+# import Crypto
+# import hashlib
+# import json
+# import Crypto.Random
+# from Crypto.Hash import SHA
+# from Crypto.Signature import PKCS1_v1_5
+# from time import time
+# from urllib.parse import urlparse
+# from uuid import uuid4
+
+
+
 from Crypto.PublicKey import RSA
-from Crypto.Signature import PKCS1_v1_5
 
-import hashlib
-import json
-from time import time
-from urllib.parse import urlparse
-from uuid import uuid4
+
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 
-class wallet:
+class Wallet:
 
-	def __init__():
-		##set
+	# 🟩🟩🟩 Constructor 🟩🟩🟩
+	#  WALLET STRUCT
+	# -> public/private key
+	# -> UTXOs
+	# -> UTXOs snapshot (current image of UTXOs of others, to check them)
+	def __init__(self, utxos={}):
+		# our wallet must be encrypted thus public/private keys
+		rsa_key = RSA.generate(1024)
+		self.privateKey = rsa_key.exportKey('PEM').decode()
+		self.publicKey = rsa_key.publickey().exportKey('PEM').decode()
+		self.utxos = utxos 			# set with key->public key, value->{id, to_who, amount}
+		self.utxos_snapshot = {} 	# set of UTXOs of others
 
-		#self.public_key
-		#self.private_key
-		#self_address
-		#self.transactions
 
-	def balance():
-
+	# 🟦🟦🟦 Balance 🟦🟦🟦
+	# Calculate NBCs of our wallet 
+	def balance(self):
+		temp=self.publicKey
+		totalNBC=0
+		for i in self.utxos[temp]:
+			totalNBC=totalNBC+i['amount']
+		return totalNBC
