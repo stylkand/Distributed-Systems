@@ -63,7 +63,7 @@ class Block:
 		print('Nonce: \t\t' + str(self.nonce))
 		print('Transactions: \t')
 		for t in self.listOfTransactions:
-			print('\t\tSender ID: ' + str(t.senderID) + ' \t\tReceiver ID: '+ str(t.receiverID) + ' \t\tAmount: '+ str(t.amount)+'nc')
+			print('\t\tSender ID: ' + str(t.senderID) + ' \t\tReceiver ID: '+ str(t.receiverID) + ' \t\tAmount: '+ str(t.amount)+'NBCs')
 			print('\t\Hash: ' + str(t.id))
 		print('Current hash: \t\t' + str(self.hash))
 		print('Previous Hash: \t' + str(self.previousHash))
