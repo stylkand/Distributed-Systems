@@ -43,7 +43,7 @@ class Node:
 		self.wallet = wallet.Wallet()			# create wallet
 		self.id = -1 							# set id to -1 (bootstrap procedure will give us the correct one)
 		self.ourChain = blockchain.Blockchain()	# create chainblock		
-		self.nodeData = {} 						# set node data {id, (ip:port), publick ey, balance}
+		self.nodeData = {} 						# set node data {id, (ip:port), publicKey, balance}
 		self.pool = threadpool.Threadpool()		# create threadpool (1 or 2 threads for 5 or 10 nodes respectively)	
 		self.receivedTransactions = []			# list of received transactions (not yet valid)
 		self.unreceivedTransactions = []		# list of transactions that are known because of a received block, they are not received individually
@@ -290,7 +290,7 @@ class Node:
 				if (amount <= sum):
 					break
 			newTransaction = copy.deepcopy(transaction.Transaction(senderPublicKey, senderID, receiverPublicKey, receiverID, amount, inputs))
-			newTransaction.sign_transaction(self.wallet.privateKey) #set id & signature
+			newTransaction.signTransaction(self.wallet.privateKey) #set id & signature
 			newTransaction.transaction_outputs.append({'id': newTransaction.id, 'to_who': newTransaction.sender, 'amount': sum-newTransaction.amount})
 			newTransaction.transaction_outputs.append({'id': newTransaction.id, 'to_who':newTransaction.receiver, 'amount': newTransaction.amount})
 
