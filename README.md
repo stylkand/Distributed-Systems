@@ -26,7 +26,7 @@ Project's assignement and report are written in greek.
 |----------------------------------------------------------------|-------------------------|
 | [Stylianos Kandylakis](https://github.com/stylkand/) | stelkcand@gmail.com    |
 | [Kitsos Orfanopoulos](https://github.com/kitsorfan)               | <a href = "mailto:kitsorfan@protonmail.com" target="_blank"><img alt="protonamil" src = "https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white" ></a>|
-| [Christos Tsoufis](https://github.com/ChristosTsoufis)                 | el17176@gmail.com      |
+| [Christos Tsoufis](https://github.com/ChristosTsoufis)                 | chris99ts@gmail.com      |
 
 
 
