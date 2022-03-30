@@ -19,7 +19,7 @@ import time
 import block
 import blockchain
 import transaction
-import threadpool
+import thread
 import wallet
 
 CAPACITY = 1	# 1 or 5 or 10
@@ -44,7 +44,7 @@ class Node:
 		self.id = -1 							# set id to -1 (bootstrap procedure will give us the correct one)
 		self.ourChain = blockchain.Blockchain()	# create chainblock		
 		self.nodeData = {} 						# set node data {id, (ip:port), publicKey, balance}
-		self.pool = threadpool.Threadpool()		# create threadpool (1 or 2 threads for 5 or 10 nodes respectively)	
+		self.pool = thread.Thread()				# create thread (1 or 2 threads for 5 or 10 nodes respectively)	
 		self.receivedTransactions = []			# list of received transactions (not yet valid)
 		self.unreceivedTransactions = []		# list of transactions that are known because of a received block, they are not received individually
 		self.validTransactions = []				# list of valid transactions for new block
