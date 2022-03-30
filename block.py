@@ -24,7 +24,7 @@ import json
 
 class Block:
 	# 🟩🟩🟩
-	# create a BLOCK struct
+	#  BLOCK STRUCT
 	# -> index
 	# -> timestamp
 	# -> transactions list
