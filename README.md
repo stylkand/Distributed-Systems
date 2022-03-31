@@ -41,7 +41,7 @@ Project's assignement and report are written in greek.
 
 ## 🛠**Installation Steps**
 
-#### Install libraries 
+### Install libraries 
 ```bash
 apt-get install zlib1g-dev
 ```
@@ -49,7 +49,7 @@ apt-get install zlib1g-dev
 apt-get install build-essential
 ```
 
-#### Install python 3.6
+### Install python 3.6
 ```bash
 cd /opt
 
@@ -70,41 +70,54 @@ make install
 
 
 
-#### Install python 3.6 (Alternatively)
+### Install python 3.6 (Alternatively)
 
 ```bash
 sudo apt install python3.6
 ```
 
-#### Install python3-venv
+### Install python3-venv
 
 ```bash
 sudo apt-get install python3-venv
 ```
 
-#### Create virtual environment
+### Create virtual environment
 
 ```bash
 python3 -m venv env
 ```
 
-#### Activate virtual environment
+### Activate virtual environment
 
 ```bash
 source env/bin/activate
 ```
 
-#### Install packages
+### Install packages
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-#### Automatically create requirements.txt
+### Automatically create requirements.txt
 ```bash
 pip3 freeze > requirements.txt # for python3
 ```
-
+## 💡**Execution Steps**
+### Start flask server to each node
+```bash
+./noobcash.sh start 5000 
+```
+### Initialize bootstrap (only at predifined bootstrap node)
+```bash
+./noobcash.sh init 5000 
+```
+### Connect every other node to the cluster
+\<PORT\> and \<IP\> of current VM
+```bash
+./noobcash.sh connect <PORT> <IP> 
+```
 
 
 ### **🔗Sources**

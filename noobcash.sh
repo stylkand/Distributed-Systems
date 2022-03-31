@@ -24,8 +24,8 @@ else
 			then
 				echo "$(tput setaf 6)Usage: ./noobcash.sh init $(tput bold)PORT num_of_nodes$(tput sgr0)"
 			else
-				num_of_nodes=$3
-				curl http://localhost:$port/init/$num_of_nodes
+				totalNodes=$3
+				curl http://localhost:$port/init/$totalNodes
 			fi
 			;;
 		connect)
