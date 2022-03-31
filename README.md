@@ -11,7 +11,7 @@
 This repository contains an implementation of a simple **blockchain** system with **proof of work** consensus, named as **NoobCash**. The project was elaborated for the Distributed Systems course at ECE, NTUA, academic year 2021-2022.
 
 **Details:**
-- For our cluster we used 5 VMs.
+- We used 5 VMs for our cluster. Each VM had 1 or 2 threads, thus we had 5 or 10 nodes.
 - Every node is a miner too.
 - Communication is achieved with Flask REST API
 - A coordinator node is resposnible for bootstraping the system. After initial communication is established each client functions as an independent node.

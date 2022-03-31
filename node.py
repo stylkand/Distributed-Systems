@@ -151,7 +151,7 @@ class Node:
 
 	# 🟪🟪🟪🟪
 	# Create first transaction (giving free money to bootstrap)
-	def create_genesis_transaction(self,totalNodes):
+	def createFirstTransaction(self,totalNodes):
 		sender=self.wallet.publicKey # get public key from bootstrap node
 		initialAmount=100*totalNodes # initial balance of bootstrap
 
@@ -224,9 +224,9 @@ class Node:
 						senderUTXOs.remove(utxo)
 						break # maybe not usefull
 				
-				# if we didn't find any output we shall wait, thus 'pending'
+				# if we didn't find any output we shall wait, thus 'received'
 				if not found:
-					return 'pending'
+					return 'received'
 
 			temp = []
 			# has no outputs "header"
@@ -258,7 +258,7 @@ class Node:
 
 	# 🟦🟦🟦🟦
 	# Add a transaction to validTransactions block list and check it that is full
-	def add_transaction_to_validated(self, transaction):
+	def addTransactionToValidList(self, transaction):
 		global CAPACITY
 		self.oldTransactions.append(transaction)
 		self.validTransactions.append(transaction)
@@ -295,7 +295,7 @@ class Node:
 			newTransaction.transaction_outputs.append({'id': newTransaction.id, 'to_who':newTransaction.receiver, 'amount': newTransaction.amount})
 
 			if(self.isTransactionValid(self.wallet.utxos,newTransaction) == 'valid'): # Node validates the newTransaction it created
-				self.add_transaction_to_validated(newTransaction)
+				self.addTransactionToValidList(newTransaction)
 				self.broadcast_transaction(newTransaction)
 				return "Created new transaction!"
 			else:
@@ -312,7 +312,7 @@ class Node:
 		for t in self.receivedTransactions:
 			if self.isTransactionValid(self.wallet.utxos, t) == 'valid':
 				self.receivedTransactions = [t for t in self.receivedTransactions if t.id not in self.receivedTransactions]
-				self.add_transaction_to_validated(t)
+				self.addTransactionToValidList(t)
 
 	# 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
 	# add transaction to receivedTransactions
@@ -379,7 +379,7 @@ class Node:
 				self.removeFromOldTransactions(block.listOfTransactions)
 
 				for t in new_valid:
-					self.add_transaction_to_validated(t)
+					self.addTransactionToValidList(t)
 				# Try validate received
 				self.isReceivedValid() 			
 

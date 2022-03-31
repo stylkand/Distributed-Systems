@@ -33,15 +33,14 @@ class Transaction:
 	# -> amount
 
     def __init__(self, sender, senderID, receiver, receiverID, amount, transaction_inputs, transaction_outputs = [], id = None, signature = None):
-        ##set
-        self.sender = sender                                # public key str
-        self.receiver = receiver                            # public key str
-        self.senderID = senderID                            # ring IDs int
+        self.sender = sender                                # public key 
+        self.receiver = receiver                            # public key 
+        self.senderID = senderID                           
         self.receiverID = receiverID
-        self.amount = amount                                # int
-        self.id = id                                        # transaction hash (str)
-        self.transaction_inputs = transaction_inputs        # list of int
-        self.transaction_outputs = transaction_outputs      # list of dicts
+        self.amount = amount                                
+        self.id = id                                       
+        self.transaction_inputs = transaction_inputs        
+        self.transaction_outputs = transaction_outputs      
         self.signature = signature
 
 
