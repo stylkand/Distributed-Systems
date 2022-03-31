@@ -229,14 +229,14 @@ class Node:
 					return 'received'
 
 			temp = []
-			# has no outputs "header"
-			if (temp != t.transaction_outputs):
-				raise Exception('Wrong outputs')
-
 			if (senderTotalMoney >= t.amount): # correct amount, add transaction to temp to check
 				temp.append({'id': t.id, 'to_who': t.sender, 'amount': senderTotalMoney - t.amount })
 				temp.append({'id': t.id, 'to_who': t.receiver, 'amount':  t.amount })
 			
+			# has no outputs "header"
+			if (temp != t.transaction_outputs):
+				raise Exception('Wrong outputs')
+
 			# no transaction has been made with receiver, initialize his wallet
 			if(t.receiver not in walletUTXOs.keys()):
 				walletUTXOs[t.receiver]=[]

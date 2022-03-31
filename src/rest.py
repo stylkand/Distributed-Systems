@@ -85,7 +85,7 @@ def initConnection(totalNodes):
 def connect_node_request(myIP,port):
 	# sending request for connection
 	myInfo = 'http://' + myIP + port
-	message = {'ip':myIP, 'port':port, 'public_key':myNode.wallet.publicKey}
+	message = {'ip':myIP, 'port':port, 'publicKey':myNode.wallet.publicKey}
 	message['flag']=0 	# flag=0 if connection request
 	m = json.dumps(message)
 	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -107,7 +107,7 @@ def connect_node_request(myIP,port):
 		myNode.addBlockListToChain(myNode.ourChain.blockList, currentChain)
 		message={}
 		message['flag']=1 # flag 1 for other request
-		message['public_key']=myNode.wallet.publicKey
+		message['publicKey']=myNode.wallet.publicKey
 
 		# second response from bootstrap
 		response = requests.post(bootstrapNodeURL + "/receive", data = json.dumps(message), headers = headers)
@@ -133,7 +133,7 @@ def receiveNodeRequest():
 		if  NODE_COUNTER < TOTAL_NODES - 1:
 			NODE_COUNTER += 1
 			newID = NODE_COUNTER
-			myNode.register_node_to_nodeData(newID, str(receivedMsg.get('ip')), receivedMsg.get('port'), receivedMsg.get('public_key'))
+			myNode.register_node_to_nodeData(newID, str(receivedMsg.get('ip')), receivedMsg.get('port'), receivedMsg.get('publicKey'))
 			new_data = {}
 			new_data['id'] = str(newID)
 			new_data['utxos'] = myNode.wallet.utxos
@@ -156,9 +156,9 @@ def receiveNodeRequest():
 			return json.dumps(message),403
 
 	else: # receiving data
-		receiverID = myNode.public_key_to_nodeData_id(receivedMsg.get('public_key'))
+		receiverID = myNode.public_key_to_nodeData_id(receivedMsg.get('publicKey'))
 		# a new node connected to cluster. Let's give him free money!
-		myNode.create_transaction(myNode.wallet.publicKey, myNode.id, receivedMsg.get('public_key'), receiverID, 100) 
+		myNode.create_transaction(myNode.wallet.publicKey, myNode.id, receivedMsg.get('publicKey'), receiverID, 100) 
 		return "Transfered 100 NBCs to Node\n", 200 # OK
 
 
@@ -240,7 +240,7 @@ def newTransaction():
 	id = int(data.get('id'))
 	# ip = myNode.nodeData[id].get('ip')
 	# port = myNode.nodeData[id].get('port')
-	recipient_address = myNode.nodeData[id].get('public_key')
+	recipient_address = myNode.nodeData[id].get('publicKey')
 	senderID = myNode.id
 	receiverID = myNode.public_key_to_nodeData_id(recipient_address)	
 	ret = myNode.create_transaction(myNode.wallet.publicKey, senderID, recipient_address, receiverID, amount)
