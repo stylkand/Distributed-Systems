@@ -160,9 +160,9 @@ class Node:
 		data['receiver']=data['sender']=sender
 		data['transaction_inputs']=[]
 		data['transaction_outputs']=[]
+		outpt_sender = outpt_receiver = {"id":0,"to_who":sender,"amount":initialAmount}
 		data['transaction_outputs'].append(outpt_sender)
 		data['transaction_outputs'].append(outpt_receiver)
-		outpt_sender = outpt_receiver = {"id":0,"to_who":sender,"amount":initialAmount}
 		data['amount']=initialAmount
 		data['id']=0
 		data['senderID']=0

@@ -29,7 +29,15 @@ use=(	'use: ./noobcash.sh start <PORT>'
 
 case $function in
 	start)
-		pip3 install requirements.txt
+		port=$2
+		pip install termcolor
+		pip install flask_cors
+		pip install flask
+		pip install requests
+		pip install numpy
+		pip install pycrypto
+
+
 		export FLASK_APP=rest.py
 		export FLASK_DEBUG=1
 		flask run --host=0.0.0.0 --port=$port

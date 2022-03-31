@@ -158,7 +158,7 @@ def receiveNodeRequest():
 	else: # receiving data
 		receiverID = myNode.public_key_to_nodeData_id(receivedMsg.get('public_key'))
 		# a new node connected to cluster. Let's give him free money!
-		myNode.create_transaction(myNode.wallet.public_key, myNode.id, receivedMsg.get('public_key'), receiverID, 100) 
+		myNode.create_transaction(myNode.wallet.publicKey, myNode.id, receivedMsg.get('public_key'), receiverID, 100) 
 		return "Transfered 100 NBCs to Node\n", 200 # OK
 
 
@@ -292,9 +292,9 @@ def viewTransactions():
 		senderPublicKey = t.sender
 		receiverPublicKey = t.receiver
 		for id, info in myNode.nodeData.items():
-			if info['public_key'] == senderPublicKey:
+			if info['publicKey'] == senderPublicKey:
 				sender_id = id
-			if info['public_key'] == receiverPublicKey:
+			if info['publicKey'] == receiverPublicKey:
 				receiver_id = id
 		temp={}
 		temp['sender_id']=sender_id
