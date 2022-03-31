@@ -111,7 +111,7 @@ pip3 freeze > requirements.txt # for python3
 ```
 ### Initialize bootstrap (only at predifined bootstrap node)
 ```bash
-./noobcash.sh init 5000 
+./noobcash.sh init 5 
 ```
 ### Connect every other node to the cluster
 \<PORT\> and \<IP\> of current VM
