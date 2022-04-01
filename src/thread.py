@@ -3,8 +3,6 @@
 # Kitsos Orfanopoulos
 # Christos Tsoufis
 
-# import os
-# import threading
 from time import sleep
 from concurrent.futures import ThreadPoolExecutor
 

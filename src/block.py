@@ -29,6 +29,7 @@ class Block:
 
 
 	# 🟩🟩🟩🟩
+	# auxiliary functin to crete dictionary (set) from a list
 	def listToSerialisable(self):
 		final = []
 		for trans in self.listOfTransactions:
@@ -48,7 +49,7 @@ class Block:
 	def printBlock(self):
 		print('\n__Block no:' + str(self.index) + '__')
 		print('Timestamp: \t' + str(self.timestamp))
-		print('Nonce: \t\t' + str(self.nonce))
+		print('Nonce: \t' + str(self.nonce))
 		print('Transactions: \t')
 		for t in self.listOfTransactions:
 			print('\t\tSender ID: ' + str(t.senderID) + ' \t\tReceiver ID: '+ str(t.receiverID) + ' \t\tAmount: '+ str(t.amount)+'NBCs')

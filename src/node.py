@@ -3,17 +3,14 @@
 # Kitsos Orfanopoulos
 # Christos Tsoufis
 
-
 # MAIN OBJECT FOR NODES 
 
 from Crypto.Hash import SHA256
-
 import json
 import requests
 import copy
 import threading
 import time
-# import os
 
 # ours 
 import block
@@ -42,8 +39,8 @@ class Node:
 	def __init__(self,NUM_OF_NODES=None):
 		self.wallet = wallet.Wallet()			# create wallet
 		self.id = -1 							# set id to -1 (bootstrap procedure will give us the correct one)
-		self.ourChain = blockchain.Blockchain()	# create chainblock		
-		self.nodeData = {} 						# set node data {id, (ip:port), publicKey, balance}
+		self.ourChain = blockchain.Blockchain()	# create blockchain		
+		self.nodeData = {} 						# set of others nodes data {id, (ip:port), publicKey, balance}
 		self.pool = thread.Thread()				# create thread (1 or 2 threads for 5 or 10 nodes respectively)	
 		self.receivedTransactions = []			# list of received transactions (not yet valid)
 		self.unreceivedTransactions = []		# list of transactions that are known because of a received block, they are not received individually
@@ -135,7 +132,7 @@ class Node:
 	# 🟪🟪 NODES AND BOOTSTRAP 🟪🟪
 
 	# 🟪🟪
-	# This function takes a blockList of JSON block objects and creates a chainblock, with list of objects
+	# This function takes a blockList of JSON block objects and creates a blockchain, with list of objects
 	def addBlockListToChain(self,ourChain_list, blockList):
 		# reads blocks from blockList (as JSON) and creates blockChain
 		for data in blockList:

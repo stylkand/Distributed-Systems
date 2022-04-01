@@ -17,22 +17,20 @@
 # flask run -h localhost -p 8765 --cert=adhoc
 # set FLASK_DEBUG=1
 
-
-
 import requests 
 import json
 from flask_cors import CORS
 from flask import Flask, request
 import copy
 import numpy as np
-# import time
+
 
 # ours
 import block
 import node
 import blockchain
 import transaction
-# import wallet
+
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

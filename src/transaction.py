@@ -3,14 +3,6 @@
 # Kitsos Orfanopoulos
 # Christos Tsoufis
 
-
-# import binascii
-# import Crypto
-# import requests
-# from flask import Flask, jsonify, request, render_template
-# import Crypto.Random
-# from Crypto.Hash import SHA
-
 from collections import OrderedDict
 from Crypto.Hash import SHA384
 from Crypto.PublicKey import RSA
@@ -24,14 +16,13 @@ import json
 class Transaction:
 	# 🟩🟩🟩 Constructor 🟩🟩🟩
     #  TRANSACTION STRUCT
-	# -> sender,    senderID
-	# -> receiver,  receiverID
+	# -> senderPK,    senderID
+	# -> receiverPK,  receiverID
 	# -> amount
 	# -> transaction_inputs
 	# -> transaction_outputs
 	# -> id
 	# -> amount
-
     def __init__(self, sender, senderID, receiver, receiverID, amount, transaction_inputs, transaction_outputs = [], id = None, signature = None):
         self.sender = sender                                # public key 
         self.receiver = receiver                            # public key 
@@ -60,7 +51,7 @@ class Transaction:
 
 
 	# 🟨🟨🟨🟨🟨🟨 
-    # convert set to dictionary
+    # Auxiliary function to convert set to dictionary
     def to_dict(self):
         return OrderedDict([('sender', self.sender), ('receiver', self.receiver), ('amount', self.amount), ('transaction_inputs', self.transaction_inputs), ('transaction_outputs', self.transaction_outputs), ('id', self.id), ('signature', self.signature)])
 
